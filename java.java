@@ -197,11 +197,9 @@ class java {
         }
     }
 
-    public static void printArray(int arr[])
-    {
-        for(int i=0;i<arr.length;i++)
-        {
-            System.out.print(arr[i]+" ");
+    public static void printArray(int arr[]) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 
@@ -406,7 +404,7 @@ class java {
     }
 
     public static void bubble(int arr[]) {
-
+        // take largest, place in the end
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -420,14 +418,12 @@ class java {
         }
     }
 
-    public static void selection(int arr[])
-    {
+    public static void selection(int arr[]) {
+        // take smallest, place in front
         int n = arr.length;
-        for(int i=0;i<n-1;i++)
-        {
+        for (int i = 0; i < n - 1; i++) {
             int l = i;
-            for(int j=i+1;j<n-1;j++)
-            {
+            for (int j = i + 1; j < n - 1; j++) {
                 if (arr[j] < arr[l]) {
                     l = j;
                 }
@@ -438,8 +434,22 @@ class java {
         }
     }
 
+    public static void insertion(int arr[]) {
+        // take one, swap with where it belongs
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int temp = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > temp) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp;
+        }
+    }
+
     public static void main(String args[]) {
-        
+
         // Scanner s = new Scanner(System.in);
         //
         // System.out.println(isPrime(4));
@@ -497,10 +507,11 @@ class java {
         // System.out.println(testTrapWater(arr));
 
         // sorting
-        // int arr[] = { 5,4,3,2,1 };
+        int arr[] = { 1, 5, 2, 3, 4 };
         // bubble(arr);
         // selection(arr);
-        // printArray(arr);
+        insertion(arr);
+        printArray(arr);
         // Arrays.sort(arr);
 
     }
