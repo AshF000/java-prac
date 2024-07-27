@@ -197,6 +197,14 @@ class java {
         }
     }
 
+    public static void printArray(int arr[])
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+
     public static int searchString(String arr[], String item) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == item) {
@@ -412,7 +420,26 @@ class java {
         }
     }
 
+    public static void selection(int arr[])
+    {
+        int n = arr.length;
+        for(int i=0;i<n-1;i++)
+        {
+            int l = i;
+            for(int j=i+1;j<n-1;j++)
+            {
+                if (arr[j] < arr[l]) {
+                    l = j;
+                }
+            }
+            int t = arr[l];
+            arr[l] = arr[i];
+            arr[i] = t;
+        }
+    }
+
     public static void main(String args[]) {
+        
         // Scanner s = new Scanner(System.in);
         //
         // System.out.println(isPrime(4));
@@ -470,8 +497,10 @@ class java {
         // System.out.println(testTrapWater(arr));
 
         // sorting
-        // int arr[] = { 5, 1, 5, 3, 5 };
+        // int arr[] = { 5,4,3,2,1 };
         // bubble(arr);
+        // selection(arr);
+        // printArray(arr);
         // Arrays.sort(arr);
 
     }
