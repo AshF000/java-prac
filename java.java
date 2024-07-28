@@ -404,8 +404,8 @@ class java {
         arr[b] = t;
     }
 
+    // take largest, place in the end
     public static void bubble(int arr[]) {
-        // take largest, place in the end
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -419,8 +419,8 @@ class java {
         }
     }
 
+    // take smallest, place in front
     public static void selection(int arr[]) {
-        // take smallest, place in front
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             int l = i;
@@ -435,8 +435,8 @@ class java {
         }
     }
 
+    // take one, swap with where it belongs
     public static void insertion(int arr[]) {
-        // take one, swap with where it belongs
         int n = arr.length;
         for (int i = 1; i < n; i++) {
             int temp = arr[i];
@@ -460,14 +460,47 @@ class java {
         for (int i = 0; i < arr.length; i++) {
             freq[arr[i]]++;
         }
-        for(int i=0,j=0;i<freq.length;i++)
-        {
-            while(freq[i]>0)
-            {
+        for (int i = 0, j = 0; i < freq.length; i++) {
+            while (freq[i] > 0) {
                 arr[j] = i;
                 freq[i]--;
                 j++;
             }
+        }
+    }
+
+    public static void testBubble(int arr[]) {
+
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] < arr[j + 1]) {
+                    swap(arr, j, j + 1);
+                }
+            }
+        }
+    }
+
+    public static void testSelection(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            int l = i;
+            for (int j = i + 1; j < n; j++) {
+                l = (arr[j] > arr[l]) ? j : l;
+            }
+            swap(arr, i, l);
+        }
+    }
+
+    public static void testInsertion(int arr[]) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int j = i-1, t = arr[i];
+            while (j >= 0 && arr[j] < t) {
+                arr[j+1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = t;
         }
     }
 
@@ -530,11 +563,16 @@ class java {
         // System.out.println(testTrapWater(arr));
 
         // sorting
-        int arr[] = { 5,4,3,2,1,2,3,4,2,1,3,5,6,7,8,3};
+        // int arr[] = { 5, 4, 3, 2, 1, 2, 3, 4, 2, 1, 3, 5, 6, 7, 8, 3 };
+        // int arr[] = { 3, 6, 2, 1, 8, 7, 4, 5, 3, 1 };
         // bubble(arr);
-        selection(arr);
+        // selection(arr);
         // insertion(arr);
         // counting(arr);
+
+        // testBubble(arr);
+        // testSelection(arr);
+        // testInsertion(arr);
         printArray(arr);
 
     }
