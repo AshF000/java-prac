@@ -1,6 +1,26 @@
 import java.util.*;
 import java.util.Collections;
 
+class array2D {
+    public static void main(String[] args) {
+        int arr2d[][] = new int[3][3];
+        Scanner sc = new Scanner(System.in);
+
+        int r = arr2d.length, c = arr2d[0].length;
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                arr2d[i][j] = sc.nextInt();
+            }
+        }
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                System.out.print(arr2d[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
 class java {
     public static String isPrime(int a) {
         if (a == 2) {
@@ -495,9 +515,9 @@ class java {
     public static void testInsertion(int arr[]) {
         int n = arr.length;
         for (int i = 1; i < n; i++) {
-            int j = i-1, t = arr[i];
+            int j = i - 1, t = arr[i];
             while (j >= 0 && arr[j] < t) {
-                arr[j+1] = arr[j];
+                arr[j + 1] = arr[j];
                 j--;
             }
             arr[j + 1] = t;
@@ -573,7 +593,7 @@ class java {
         // testBubble(arr);
         // testSelection(arr);
         // testInsertion(arr);
-        printArray(arr);
+        // printArray(arr);
 
     }
 }
