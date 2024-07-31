@@ -2,22 +2,39 @@ import java.util.*;
 import java.util.Collections;
 
 class array2D {
-    public static void main(String[] args) {
-        int arr2d[][] = new int[3][3];
-        Scanner sc = new Scanner(System.in);
+    public static void spiral(int arr[][]) {
+        int sr = 0, sc = 0, er = arr.length - 1, ec = arr[0].length - 1;
 
-        int r = arr2d.length, c = arr2d[0].length;
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
-                arr2d[i][j] = sc.nextInt();
+        while (sr <= er && sc <= ec) {
+            for (int i = sc; i <= ec; i++) {
+                System.out.print(arr[sr][i] + " ");
             }
-        }
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
-                System.out.print(arr2d[i][j] + " ");
+
+            for (int i = sc + 1; i <= er; i++) {
+                System.out.print(arr[i][ec] + " ");
             }
-            System.out.println();
+
+            for (int i = ec - 1; i >= sc; i--) {
+                System.out.print(arr[er][i] + " ");
+            }
+
+            for (int i = er - 1; i >= sr + 1; i--) {
+                System.out.print(arr[i][sc] + " ");
+            }
+            sr++;
+            er--;
+            sc++;
+            ec--;
         }
+
+    }
+
+    public static void main(String[] args) {
+        int arr[][] = { { 1, 2, 3, 4, 21 },
+                { 5, 6, 7, 8, 22 },
+                { 9, 10, 11, 12, 23 }, { 13, 14, 15, 16, 24 },
+                { 17, 18, 19, 20, 25 } };
+        spiral(arr);
     }
 }
 
