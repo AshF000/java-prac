@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Collections;
 
-class array2D {
+class array2D { 
     public static void spiral(int arr[][]) {
         int sr = 0, sc = 0, er = arr.length - 1, ec = arr[0].length - 1;
 
@@ -29,12 +29,28 @@ class array2D {
 
     }
 
+    public static void diagonalSum(int arr[][])
+    {
+        int r = arr.length - 1, c = arr[0].length - 1, sum = 0;
+        
+        for(int i=0,j=0;i<=r&&j<=c;i++,j++)
+        {
+            sum += arr[i][j];
+        }
+        for (int i = 0, j = c; i <= r && c >= 0;i++,j--)
+        {
+            sum+=i==j?0:arr[i][j];
+        }
+        System.out.println(sum);
+    }
+    
     public static void main(String[] args) {
         int arr[][] = { { 1, 2, 3, 4, 21 },
-                { 5, 6, 7, 8, 22 },
-                { 9, 10, 11, 12, 23 }, { 13, 14, 15, 16, 24 },
-                { 17, 18, 19, 20, 25 } };
-        spiral(arr);
+                        { 5, 6, 7, 8, 22 },
+                        { 9, 10, 11, 12, 23 },
+                        { 13, 14, 15, 16, 24 },
+                        { 17, 18, 19, 20, 25 } };
+        diagonalSum(arr);
     }
 }
 
@@ -251,6 +267,7 @@ class java {
         return -1;
     }
 
+    //find mid
     public static int binarySearch(int arr[], int key) {
         int s = 0, e = arr.length - 1;
         while (s <= e) {
